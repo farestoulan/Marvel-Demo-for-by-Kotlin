@@ -8,12 +8,13 @@ import ModelClasses.ApiInterface
 import retrofit2.Call
 import retrofit2.Callback
 
-class RemotDataSource {
+class RemoteDataSource {
     private var volumesResponseLiveData: MutableLiveData<DataModelClass>? = null
 
     companion object {
         private const val BASE_URL = "https://gateway.marvel.com/"
     }
+
 
     fun remoteData(callback: Callback<DataModelClass?>): Call<DataModelClass?>? {
         volumesResponseLiveData = MutableLiveData()

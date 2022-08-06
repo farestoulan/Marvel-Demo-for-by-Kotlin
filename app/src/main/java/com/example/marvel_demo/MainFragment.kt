@@ -2,7 +2,6 @@ package com.example.marvel_demo
 
 import Adapter.Adapter
 import android.os.Bundle
-import Adapter.Adapter.ItemClickListener
 import Database.*
 import ModelClasses.ListModelClass
 import android.view.LayoutInflater
@@ -10,7 +9,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.lifecycle.ViewModelProviders
 import ModelClasses.DataModelClass
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
@@ -32,11 +30,11 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val viewModelFactory: MyViewModelFactory
-        val remotDataSource = RemotDataSource()
+        val remoteDataSource = RemoteDataSource()
         val localDataSource = LocalDataSource(context!!)
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
         imageView = view.findViewById(R.id.imageView)
-        val repository = Repository(remotDataSource, localDataSource)
+        val repository = Repository(remoteDataSource, localDataSource)
         viewModelFactory = MyViewModelFactory(repository)
         val viewModel = ViewModelProviders.of(this, viewModelFactory)
             .get(MarvelViewModel::class.java)

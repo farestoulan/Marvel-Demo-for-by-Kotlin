@@ -7,12 +7,13 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class Repository(private val remoteData: RemotDataSource, private val localData: LocalDataSource) {
+class Repository(private val remoteData: RemoteDataSource, private val localData: LocalDataSource) {
     fun getData(): MutableLiveData<DataModelClass?> {
         val res = MutableLiveData<DataModelClass?>()
-        if (localData.localData != null) {
-            res.postValue(localData.localData)
+        if (localData.getLocalData() != null) {
+            res.postValue(localData.getLocalData())
         } else {
+
             remoteData.remoteData(object : Callback<DataModelClass?> {
                 override fun onResponse(
                     call: Call<DataModelClass?>,
