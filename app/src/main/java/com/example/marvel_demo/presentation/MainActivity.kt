@@ -1,9 +1,10 @@
-package com.example.marvel_demo
+package com.example.marvel_demo.presentation
 
 
 import androidx.appcompat.app.AppCompatActivity
 import android.annotation.SuppressLint
 import android.os.Bundle
+import com.example.marvel_demo.R
 
 
 class MainActivity : AppCompatActivity() {

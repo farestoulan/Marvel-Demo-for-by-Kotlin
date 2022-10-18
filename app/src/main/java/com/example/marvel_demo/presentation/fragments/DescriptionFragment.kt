@@ -1,4 +1,4 @@
-package com.example.marvel_demo
+package com.example.marvel_demo.presentation.fragments
 
 
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.example.marvel_demo.R
 
 class DescriptionFragment : Fragment() {
 
@@ -22,7 +23,8 @@ class DescriptionFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val textView = view.findViewById<TextView>(R.id.tv_Description)
 
-        val args: DescriptionFragmentArgs = DescriptionFragmentArgs.fromBundle(arguments!!)
+        val args: DescriptionFragmentArgs =
+            DescriptionFragmentArgs.fromBundle(arguments!!)
         textView.text = args.name
     }
 

@@ -1,4 +1,4 @@
-package com.example.marvel_demo
+package com.example.marvel_demo.presentation.fragments
 
 
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.View
 import androidx.fragment.app.Fragment
+import com.example.marvel_demo.R
 
 class ItemListFragment : Fragment() {
 

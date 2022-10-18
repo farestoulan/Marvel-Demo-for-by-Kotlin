@@ -1,6 +1,6 @@
-package Database
+package com.example.marvel_demo.data.dataSource.local.Database
 
-import ModelClasses.ListModelClass
+import com.example.marvel_demo.data.ModelClasses.ListModelClass
 import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken

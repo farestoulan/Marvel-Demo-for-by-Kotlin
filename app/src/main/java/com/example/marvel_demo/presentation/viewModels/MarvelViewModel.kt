@@ -1,12 +1,13 @@
-package Database
+package com.example.marvel_demo.presentation.viewModels
 
-import ModelClasses.DataModelClass
+import com.example.marvel_demo.data.ModelClasses.DataModelClass
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.marvel_demo.data.repository.Repository
 
 
 class MarvelViewModel(repository: Repository) : ViewModel() {
-    private val repository:Repository
+    private val repository: Repository
 
     fun getVolumesResponseLiveData(): MutableLiveData<DataModelClass?> {
         return repository.getData()

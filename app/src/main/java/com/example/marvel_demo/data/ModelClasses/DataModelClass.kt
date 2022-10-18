@@ -1,4 +1,4 @@
-package ModelClasses
+package com.example.marvel_demo.data.ModelClasses
 
 
 import androidx.room.PrimaryKey

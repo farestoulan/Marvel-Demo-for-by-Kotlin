@@ -1,7 +1,9 @@
-package Database
+package com.example.marvel_demo.data.dataSource.local
 
-import ModelClasses.DataModelClass
+import com.example.marvel_demo.data.ModelClasses.DataModelClass
 import android.content.Context
+import com.example.marvel_demo.data.dataSource.local.Database.DAOClass
+import com.example.marvel_demo.data.dataSource.local.Database.DatabaseClass
 
 class LocalDataSource(context: Context) {
     var dao: DAOClass?

@@ -1,10 +1,10 @@
-package Database
+package com.example.marvel_demo.data.dataSource.remote
 
-import ModelClasses.DataModelClass
+import com.example.marvel_demo.data.ModelClasses.DataModelClass
 import androidx.lifecycle.MutableLiveData
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import ModelClasses.ApiInterface
+import com.example.marvel_demo.data.ModelClasses.ApiInterface
 import retrofit2.Call
 import retrofit2.Callback
 

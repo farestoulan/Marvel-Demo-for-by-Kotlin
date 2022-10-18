@@ -1,10 +1,11 @@
-package Database
+package com.example.marvel_demo.presentation.viewModels
 
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.marvel_demo.data.repository.Repository
 
-class MyViewModelFactory(repository:Repository) : ViewModelProvider.Factory {
+class MyViewModelFactory(repository: Repository) : ViewModelProvider.Factory {
     private val repository: Repository
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

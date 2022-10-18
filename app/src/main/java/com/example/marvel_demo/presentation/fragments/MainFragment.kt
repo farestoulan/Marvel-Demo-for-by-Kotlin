@@ -1,18 +1,23 @@
-package com.example.marvel_demo
+package com.example.marvel_demo.presentation.fragments
 
-import Adapter.Adapter
+import com.example.marvel_demo.presentation.Adapter.Adapter
 import android.os.Bundle
-import Database.*
-import ModelClasses.ListModelClass
+import com.example.marvel_demo.data.ModelClasses.ListModelClass
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.lifecycle.ViewModelProviders
-import ModelClasses.DataModelClass
+import com.example.marvel_demo.data.ModelClasses.DataModelClass
 import android.view.View
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.marvel_demo.R
+import com.example.marvel_demo.data.dataSource.local.LocalDataSource
+import com.example.marvel_demo.data.dataSource.remote.RemoteDataSource
+import com.example.marvel_demo.data.repository.Repository
+import com.example.marvel_demo.presentation.viewModels.MarvelViewModel
+import com.example.marvel_demo.presentation.viewModels.MyViewModelFactory
 
 class MainFragment : Fragment() {
     var imageView: ImageView? = null
@@ -50,9 +55,10 @@ class MainFragment : Fragment() {
                         position: Int,
                         data: MutableList<ListModelClass?>
                     ) {
-                        val action = MainFragmentDirections.actionMainFragmentToDescriptionFragment(
-                            data[position]?.description
-                        )
+                        val action =
+                            MainFragmentDirections.actionMainFragmentToDescriptionFragment(
+                                data[position]?.description
+                            )
                         findNavController().navigate(action)
 
                     }

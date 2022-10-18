@@ -1,6 +1,6 @@
-package Database
+package com.example.marvel_demo.data.dataSource.local.Database
 
-import ModelClasses.DataModelClass
+import com.example.marvel_demo.data.ModelClasses.DataModelClass
 import androidx.room.*
 import androidx.room.Dao
 
