@@ -1,4 +1,4 @@
-package com.example.marvel_demo.data.ModelClasses
+package com.example.marvel_demo.data.models
 
 import com.google.gson.annotations.SerializedName
 
@@ -6,5 +6,5 @@ import com.google.gson.annotations.SerializedName
 class Results {
     @JvmField
     @SerializedName("results")
-    var results: MutableList<ListModelClass?>? = null
+    var results: MutableList<CharacterModel>? = null
 }

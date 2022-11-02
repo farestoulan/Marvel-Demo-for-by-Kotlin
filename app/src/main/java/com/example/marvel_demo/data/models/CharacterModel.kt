@@ -1,8 +1,8 @@
-package com.example.marvel_demo.data.ModelClasses
+package com.example.marvel_demo.data.models
 
 import com.google.gson.annotations.SerializedName
 
-class ListModelClass(
+class CharacterModel(
     @SerializedName("description")
     var description: String,
     @SerializedName("thumbnail")

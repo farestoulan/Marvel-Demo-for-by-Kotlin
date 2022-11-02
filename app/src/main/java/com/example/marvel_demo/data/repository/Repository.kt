@@ -1,17 +1,18 @@
 package com.example.marvel_demo.data.repository
 
 
-import com.example.marvel_demo.data.ModelClasses.DataModelClass
 import androidx.lifecycle.MutableLiveData
 import com.example.marvel_demo.data.dataSource.local.LocalDataSource
 import com.example.marvel_demo.data.dataSource.remote.RemoteDataSource
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.example.marvel_demo.data.models.DataModelClass
+import javax.inject.Inject
 
-class Repository(private val remoteData: RemoteDataSource, private val localData: LocalDataSource) {
+class Repository @Inject constructor(
+    private val remoteData: RemoteDataSource,
+    private val localData: LocalDataSource,
+) {
 
-    fun getData(): MutableLiveData<DataModelClass?> {
+    suspend fun getData(): MutableLiveData<DataModelClass?> {
         val res = MutableLiveData<DataModelClass?>()
 
 
@@ -19,22 +20,20 @@ class Repository(private val remoteData: RemoteDataSource, private val localData
             res.postValue(localData.getLocalData())
         } else {
 
-            remoteData.remoteData(object : Callback<DataModelClass?> {
-                override fun onResponse(
-                    call: Call<DataModelClass?>,
-                    response: Response<DataModelClass?>,
-                ) {
-                    if (response.body() != null) {
-                        localData.insertLocalData(response.body())
-                        res.postValue(response.body())
-                    }
-                }
+            val charactersResponse = remoteData.getCharacters()
 
-                override fun onFailure(call: Call<DataModelClass?>, t: Throwable) {
-                    res.postValue(null)
+            if (charactersResponse.isSuccessful) {
+                if (charactersResponse.body() != null) {
+                    val characters = charactersResponse.body()
+
+                    localData.insertLocalData(characters!!)
+                    res.postValue(characters)
                 }
-            })
+            } else {
+                res.postValue(null)
+            }
         }
+
         return res
     }
 }

@@ -1,30 +1,16 @@
 package com.example.marvel_demo.data.dataSource.remote
 
-import com.example.marvel_demo.data.ModelClasses.DataModelClass
-import androidx.lifecycle.MutableLiveData
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import com.example.marvel_demo.data.ModelClasses.ApiInterface
-import retrofit2.Call
-import retrofit2.Callback
+import com.example.marvel_demo.data.models.CharactersEndPoint
+import com.example.marvel_demo.data.models.DataModelClass
+import retrofit2.Response
+import javax.inject.Inject
 
-class RemoteDataSource {
-    private var volumesResponseLiveData: MutableLiveData<DataModelClass>? = null
+class RemoteDataSource @Inject constructor(
+    private val charactersEndPoint: CharactersEndPoint
+)  {
 
-    companion object {
-        private const val BASE_URL = "https://gateway.marvel.com/"
+    suspend fun getCharacters(): Response<DataModelClass> {
+        return charactersEndPoint.getCharactersPhoto()
     }
-
-
-    fun remoteData(callback: Callback<DataModelClass?>): Call<DataModelClass?>? {
-        volumesResponseLiveData = MutableLiveData()
-        val retrofit = Retrofit.Builder().baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create()).build()
-        val apiInterface = retrofit.create(ApiInterface::class.java)
-        val call = apiInterface.getPhoto()
-        call?.enqueue(callback)
-        return call
-    }
-
 
 }

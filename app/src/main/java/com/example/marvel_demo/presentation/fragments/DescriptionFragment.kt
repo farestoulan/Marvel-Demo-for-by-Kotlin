@@ -24,7 +24,7 @@ class DescriptionFragment : Fragment() {
         val textView = view.findViewById<TextView>(R.id.tv_Description)
 
         val args: DescriptionFragmentArgs =
-            DescriptionFragmentArgs.fromBundle(arguments!!)
+            DescriptionFragmentArgs.fromBundle(requireArguments())
         textView.text = args.name
     }
 

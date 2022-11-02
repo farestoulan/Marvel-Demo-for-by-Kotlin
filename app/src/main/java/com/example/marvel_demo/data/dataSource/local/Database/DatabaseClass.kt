@@ -1,6 +1,6 @@
 package com.example.marvel_demo.data.dataSource.local.Database
 
-import com.example.marvel_demo.data.ModelClasses.DataModelClass
+import com.example.marvel_demo.data.models.DataModelClass
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
